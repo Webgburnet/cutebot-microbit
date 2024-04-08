@@ -13,17 +13,21 @@ radio.onReceivedString(function (receivedString) {
         cuteBot.colorLight(cuteBot.RGBLights.ALL, 0x0000ff)
     } else if (receivedString == "Jaune") {
         cuteBot.colorLight(cuteBot.RGBLights.ALL, 0xffff00)
-    } else if (receivedString == "Avancer") {
-        cuteBot.motors(100, 100)
-    } else if (receivedString == "Reculer") {
-        cuteBot.motors(-100, -100)
-    } else if (receivedString == "Gauche") {
-    	
-    } else if (receivedString == "Droite") {
+    } else {
     	
     }
 })
+radio.onReceivedValue(function (name, value) {
+    if (name == "x") {
+        x = value
+    }
+    if (name == "y") {
+        y = value
+    }
+})
+let y = 0
+let x = 0
 radio.setGroup(255)
 basic.forever(function () {
-	
+    cuteBot.motors(y + x, y - x)
 })
