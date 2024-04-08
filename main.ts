@@ -27,7 +27,9 @@ radio.onReceivedValue(function (name, value) {
 })
 let y = 0
 let x = 0
-radio.setGroup(255)
+let radio2 = 255
+radio.setGroup(radio2)
+basic.showNumber(radio2)
 basic.forever(function () {
     cuteBot.motors(y + x, y - x)
 })
